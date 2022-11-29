@@ -12,6 +12,10 @@
     .mt-sm-16 {
         margin-top: 16px !important;
     }
+    
+    .d-sm-none {
+        display: none !important;
+    }
 
     #header {
         overflow: hidden;
