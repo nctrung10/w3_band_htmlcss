@@ -235,7 +235,7 @@
 
         modalClose.addEventListener('click', hideBuyTickets)
 
-        // Xử lý click ra bên ngoài modal (modal container) thì modal tự động đóng
+        // Click ra bên ngoài modal (modal container) thì modal tự động đóng
         modal.addEventListener('click', hideBuyTickets)
         modalContainer.addEventListener('click', event => {
             event.stopPropagation()
@@ -271,7 +271,6 @@
             const isParentMenu = item.nextElementSibling && item.nextElementSibling.classList.contains('subnav')
             
             item.onclick = event => {
-                isParentMenu ? event.preventDefault() : header.style.height = null
                 if (isParentMenu) {
                     event.preventDefault()
                 } else {
@@ -280,7 +279,8 @@
                 }
             }
         })
-
+        
+        // Tự động xóa overlay và đóng menu khi click bên ngoài menu
         overlay.onclick = function() {
             this.classList.remove('open')
             header.style.height = null
