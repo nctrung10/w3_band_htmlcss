@@ -38,14 +38,14 @@
             <div class="mobile-menu-btn">
                 <i class="menu-icon ti-menu"></i>
             </div>
-
+            
             <!-- Search btn -->
             <div class="search-btn">
                 <i class="search-icon ti-search"></i>
                 <input class="search-input" type="text" placeholder="Tìm kiếm..." >
             </div>
         </div>
-
+        
         <div id="slider">
             <div class="text-content">
                 <h2 class="text-heading">Chicago</h2>
@@ -171,6 +171,8 @@
             <p class="copy-right">Powered by <a target="_blank" href="https://www.w3schools.com/w3css/default.asp">w3.css</a></p>
             <p class="copy-right"><a target="_blank" href="https://www.w3schools.com/w3css/tryw3css_templates_band.htm">Template</a></p>
         </div>
+
+        <div class="overlay"></div>
     </div>
 
     <!-- Modal -->
@@ -245,12 +247,22 @@
         // Đóng/mở mobile menu
         const header = document.getElementById('header')
         const mobileMenu = document.querySelector('.mobile-menu-btn')
+        const main = document.getElementById('main')
         let headerHeight = header.clientHeight
+        const overlay = document.querySelector('.overlay')
         
         mobileMenu.onclick = () => {
             var isClosed = header.clientHeight === headerHeight;
 
-            isClosed ? header.style.height = 'auto' : header.style.height = null
+            // isClosed ? header.style.height = 'auto' : header.style.height = null
+            
+            if (isClosed) {
+                header.style.height = 'auto'
+                overlay.classList.add('open')
+            } else {
+                header.style.height = null
+                overlay.classList.remove('open')
+            }
         }
 
         // Tự động đóng khi chọn menu
@@ -260,8 +272,19 @@
             
             item.onclick = event => {
                 isParentMenu ? event.preventDefault() : header.style.height = null
+                if (isParentMenu) {
+                    event.preventDefault()
+                } else {
+                    header.style.height = null
+                    overlay.classList.remove('open')
+                }
             }
         })
+
+        overlay.onclick = function() {
+            this.classList.remove('open')
+            header.style.height = null
+        }
     </script>
 </body>
 </html>
