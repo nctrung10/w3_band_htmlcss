@@ -4,11 +4,13 @@
     .col-sm-12 {
         width: 100% !important;
     }
+    .row {
+        flex-direction: column;
+    }
 
     .mt-sm-8 {
         margin-top: 8px !important;
     }
-
     .mt-sm-16 {
         margin-top: 16px !important;
     }
@@ -19,12 +21,11 @@
 
     #header {
         overflow: hidden;
+        flex-direction: column;
     }
-    
     #header .mobile-menu-btn {
         display: block;
     }
-
     #header .search-btn {
         display: none;
     }
@@ -32,7 +33,6 @@
     #nav {
         display: block;
     }
-    
     #nav > li {
         display: block;
     }
@@ -41,12 +41,10 @@
     #nav > li:first-child { 
         display: inline-block;
     }   
-
     #nav .subnav {
         position: initial;
         background-color: #333;
     }
-
     #nav .subnav a {
         color: #fff;
         padding: 4px 40px;
@@ -59,7 +57,7 @@
     .contact-form {
         margin-top: 32px;
     }
-
+    
 }
 
 /* Tablet & Mobile */

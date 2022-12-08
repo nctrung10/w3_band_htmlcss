@@ -84,7 +84,7 @@
                     <ul class="tickets-list">
                         <li>September <span class="sold-out">Sold out</span></li>
                         <li>October <span class="sold-out">Sold out</span></li>
-                        <li>November <span class="quantity">3</span></li>
+                        <li>November <span class="quantity right">3</span></li>
                     </ul>
 
                     <!-- Places section -->
@@ -248,14 +248,12 @@
         const header = document.getElementById('header')
         const mobileMenu = document.querySelector('.mobile-menu-btn')
         const main = document.getElementById('main')
-        let headerHeight = header.clientHeight
+        const headerHeight = header.clientHeight
         const overlay = document.querySelector('.overlay')
         
         mobileMenu.onclick = () => {
             var isClosed = header.clientHeight === headerHeight;
 
-            // isClosed ? header.style.height = 'auto' : header.style.height = null
-            
             if (isClosed) {
                 header.style.height = 'auto'
                 overlay.classList.add('open')
@@ -279,8 +277,7 @@
                 }
             }
         })
-        
-        // Tự động xóa overlay và đóng menu khi click bên ngoài menu
+
         overlay.onclick = function() {
             this.classList.remove('open')
             header.style.height = null

@@ -48,18 +48,12 @@ html {
 }
 
 .row {
+    display: flex;
     margin-left: -8px;
     margin-right: -8px;
 }
-/* clear float */
-.row::after {
-    content: "";
-    display: block;
-    clear: both;
-}
 
 .col {
-    float: left;
     padding-left: 8px;
     padding-right: 8px;
 }
@@ -99,7 +93,7 @@ html {
     bottom: 0;
     left: 0;
     z-index: 1;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 
@@ -117,6 +111,8 @@ html {
     position: fixed;
     top: 0;
     z-index: 1030;
+    display: flex;
+    justify-content: space-between;
 }
 
 #nav {
@@ -147,6 +143,16 @@ html {
     display: block;
 }
 
+#nav .subnav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
 #nav li:hover .subnav {
     display: block;
 }
@@ -155,16 +161,6 @@ html {
 #nav > li:hover > a {
     color: #000 !important;
     background-color: #ccc;
-}
-
-#nav .subnav {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #fff;
-    min-width: 160px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 #nav .subnav a {
@@ -179,22 +175,12 @@ html {
     font-weight: bold;
 }
 
+/* Menu button for mobile */
 #header .mobile-menu-btn {
-    float: right;
     position: absolute;
     top: 0;
     right: 0;
     display: none;
-}
-
-#header .search-btn {
-    float: right;
-    position: relative;
-}
-
-#header .search-btn:hover {
-    cursor: pointer;
-    background-color: #f44336;
 }
 
 #header .mobile-menu-btn:hover {
@@ -203,6 +189,15 @@ html {
 
 #header .mobile-menu-btn:hover .menu-icon {
     color: #000;
+}
+
+#header .search-btn {
+    position: relative;
+}
+
+#header .search-btn:hover {
+    cursor: pointer;
+    background-color: #f44336;
 }
 
 #header .menu-icon,
@@ -261,7 +256,7 @@ html {
     font-weight: 600;
 }
 
-
+/* Main Content */
 #content {
     
 }
@@ -337,7 +332,6 @@ html {
 }
 
 .tickets-list .quantity {
-    float: right;
     background-color: #000;
     color: #fff;
     width: 24px;
@@ -345,7 +339,6 @@ html {
     border-radius: 50%;
     text-align: center;
     line-height: 24px;
-    margin-right: 16px;
     margin-top: -3px;
 }
 
